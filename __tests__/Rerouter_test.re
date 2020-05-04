@@ -46,9 +46,25 @@ module Harness = {
   };
 };
 
+module UseUrlHarness = {
+  [@react.component]
+  let make = () => {
+    Rerouter.useUrl()->ignore;
+    <div />;
+  };
+};
+
+module UseHistoryHarness = {
+  [@react.component]
+  let make = () => {
+    Rerouter.useHistory()->ignore;
+    <div />;
+  };
+};
+
 beforeEach(() => {
-  %bs.raw
-  {| jest.clearAllMocks() |}
+  [%bs.raw {| jest.clearAllMocks() |}]->ignore;
+  [%bs.raw {| console.error = jest.fn() |}]->ignore;
 });
 
 test("path should be empty when just /", () => {
@@ -127,4 +143,18 @@ test(
   render(<Rerouter> <Harness /> </Rerouter>)->ignore;
   [%bs.raw {| expect(bh).toHaveBeenCalled() |}]->ignore;
   pass;
+});
+
+test("Using useUrl without a context should throw", () => {
+  expect(() => {
+    render(<UseUrlHarness />)
+  })
+  |> toThrowMessage("useUrl must be used inside a Rerouter context")
+});
+
+test("Using useHistory without a context should throw", () => {
+  expect(() => {
+    render(<UseHistoryHarness />)
+  })
+  |> toThrowMessage("useHistory must be used inside a Rerouter context")
 });
