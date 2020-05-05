@@ -22,7 +22,8 @@
   "bs-dev-dependencies": [
     "@glennsl/bs-jest",
     "@drewschrauf/bs-jest-dom",
-    "@drewschrauf/bs-react-testing-library"
+    "@drewschrauf/bs-react-testing-library",
+    "@drewschrauf/bs-react-hooks-testing-library"
   ],
   "refmt": 3
 }

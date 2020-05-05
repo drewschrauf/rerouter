@@ -59,7 +59,7 @@ let useUrl = (): url => {
   let c = React.useContext(context);
   switch (c) {
   | Some((url, _)) => url
-  | None => failwith("useUrl must be used inside a Rerouter context")
+  | None => Js.Exn.raiseError("useUrl must be used inside a Rerouter context")
   };
 };
 
@@ -67,6 +67,7 @@ let useHistory = (): History.history => {
   let c = React.useContext(context);
   switch (c) {
   | Some((_, history)) => history
-  | None => failwith("useHistory must be used inside a Rerouter context")
+  | None =>
+    Js.Exn.raiseError("useHistory must be used inside a Rerouter context")
   };
 };
