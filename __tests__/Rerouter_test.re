@@ -22,7 +22,10 @@ module Tests = (TA: TestArgs) : TestCase => {
     [@react.component]
     let make = (~children) => {
       <Rerouter
-        history={History.createMemoryHistory(~initialEntries=[TA.url], ())}>
+        history={Rerouter.History.createMemoryHistory(
+          ~initialEntries=[TA.url],
+          (),
+        )}>
         children
       </Rerouter>;
     };
@@ -125,7 +128,10 @@ module Context = {
   [@react.component]
   let make = (~children) => {
     <Rerouter
-      history={History.createMemoryHistory(~initialEntries=["/"], ())}>
+      history={Rerouter.History.createMemoryHistory(
+        ~initialEntries=["/"],
+        (),
+      )}>
       children
     </Rerouter>;
   };
@@ -144,7 +150,7 @@ test("using history.push should update url", () => {
 
   let history = result |> current |> snd;
 
-  act(() => history->History.push("/hello/world"));
+  act(() => history->Rerouter.History.push("/hello/world"));
 
   let Rerouter.{path} = result |> current |> fst;
 

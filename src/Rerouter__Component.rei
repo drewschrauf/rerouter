@@ -1,20 +1,20 @@
 let make:
   {
     .
-    "history": option(History.history),
+    "history": option(Rerouter__History.history),
     "children": React.element,
   } =>
   React.element;
 let makeProps:
   (
-    ~history: History.history=?,
+    ~history: Rerouter__History.history=?,
     ~children: React.element,
     ~key: string=?,
     unit
   ) =>
   {
     .
-    "history": option(History.history),
+    "history": option(Rerouter__History.history),
     "children": React.element,
   };
 
@@ -24,4 +24,4 @@ type url = {
   hash: string,
 };
 let useUrl: unit => url;
-let useHistory: unit => History.history;
+let useHistory: unit => Rerouter__History.history;
