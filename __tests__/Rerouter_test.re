@@ -3,7 +3,7 @@ open Expect;
 open ReactHooksTestingLibrary;
 
 let history = [%bs.raw {| require("history") |}];
-let bh = [%bs.raw {| jest.spyOn(history, "createBrowserHistory")|}];
+let bh = [%bs.raw {| jest.spyOn(history, "createBrowserHistory") |}];
 
 beforeEach(() => {
   [%bs.raw {| jest.clearAllMocks() |}]->ignore;

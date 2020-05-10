@@ -66,7 +66,7 @@ let useUrl = (): url => {
   };
 };
 
-let useHistory = (): History.history => {
+let useHistory = (): History.t => {
   let c = React.useContext(context);
   switch (c) {
   | Some((_, history)) => history

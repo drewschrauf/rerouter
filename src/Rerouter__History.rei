@@ -1,4 +1,4 @@
-type history;
+type t;
 type unlisten = unit => unit;
 type location = {
   pathname: string,
@@ -7,8 +7,7 @@ type location = {
 };
 
 let createBrowserHistory:
-  (~basename: string=?, ~forceRefresh: bool=?, ~keyLength: int=?, unit) =>
-  history;
+  (~basename: string=?, ~forceRefresh: bool=?, ~keyLength: int=?, unit) => t;
 
 let createMemoryHistory:
   (
@@ -17,9 +16,9 @@ let createMemoryHistory:
     ~keyLength: int=?,
     unit
   ) =>
-  history;
+  t;
 
-let listen: (history, location => unit) => unlisten;
-let location: history => location;
-let push: (history, string) => unit;
-let replace: (history, string) => unit;
+let listen: (t, location => unit) => unlisten;
+let location: t => location;
+let push: (t, string) => unit;
+let replace: (t, string) => unit;

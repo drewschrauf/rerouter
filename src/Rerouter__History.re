@@ -1,4 +1,4 @@
-type history;
+type t;
 type unlisten = unit => unit;
 type location = {
   pathname: string,
@@ -23,17 +23,17 @@ module MemoryHistoryOptions = {
 };
 
 [@bs.module "history"]
-external _createBrowserHistory: BrowserHistoryOptions.t => history =
+external _createBrowserHistory: BrowserHistoryOptions.t => t =
   "createBrowserHistory";
 
 [@bs.module "history"]
-external _createMemoryHistory: MemoryHistoryOptions.t => history =
+external _createMemoryHistory: MemoryHistoryOptions.t => t =
   "createMemoryHistory";
 
-[@bs.send] external listen: (history, location => unit) => unlisten = "listen";
-[@bs.get] external location: history => location = "location";
-[@bs.send] external push: (history, string) => unit = "push";
-[@bs.send] external replace: (history, string) => unit = "replace";
+[@bs.send] external listen: (t, location => unit) => unlisten = "listen";
+[@bs.get] external location: t => location = "location";
+[@bs.send] external push: (t, string) => unit = "push";
+[@bs.send] external replace: (t, string) => unit = "replace";
 
 let createBrowserHistory =
     (
@@ -42,7 +42,7 @@ let createBrowserHistory =
       ~keyLength: option(int)=?,
       (),
     )
-    : history =>
+    : t =>
   _createBrowserHistory({basename, forceRefresh, keyLength});
 
 let createMemoryHistory =
@@ -52,7 +52,7 @@ let createMemoryHistory =
       ~keyLength: option(int)=?,
       (),
     )
-    : history =>
+    : t =>
   _createMemoryHistory({
     initialEntries:
       switch (initialEntries) {
