@@ -29,7 +29,7 @@
     "@drewschrauf/bs-react-hooks-testing-library": "^0.1.0",
     "@drewschrauf/bs-react-testing-library": "^0.1.2",
     "@glennsl/bs-jest": "^0.5.1",
-    "bs-platform": "^7.2.2",
+    "bs-platform": "^7.3.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "reason-react": "^0.8.0"
