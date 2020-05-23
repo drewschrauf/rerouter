@@ -157,6 +157,26 @@ test("using history.push should update url", () => {
   expect(path) |> toEqual(["hello", "world"]);
 });
 
+test("using history.replace should update url", () => {
+  let result =
+    renderHook(
+      () => {
+        let path = Rerouter.useUrl();
+        let history = Rerouter.useHistory();
+        (path, history);
+      },
+      ~wrapper=Context.make,
+    );
+
+  let history = result |> current |> snd;
+
+  act(() => history->Rerouter.History.replace("/hello/world"));
+
+  let Rerouter.{path} = result |> current |> fst;
+
+  expect(path) |> toEqual(["hello", "world"]);
+});
+
 test(
   "using the provider without a history should default to a browser history",
   () => {
