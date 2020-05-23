@@ -280,10 +280,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@drewschrauf/bs-dom-testing-library@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@drewschrauf/bs-dom-testing-library/-/bs-dom-testing-library-0.1.2.tgz#742e292815b0a47591c675ac7ea6c655fb9b25e6"
-  integrity sha512-kNk/n60JEjtaU8oMNZQBacijRxACexnGgc6D97j0RTW+Ax41ly7/Nae4LetlobYFG/71q6iE54o59NlXdSY7wA==
+"@drewschrauf/bs-dom-testing-library@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@drewschrauf/bs-dom-testing-library/-/bs-dom-testing-library-0.1.3.tgz#f391ba7e51fb1755c6d1012d681df99039146134"
+  integrity sha512-MXjubBAewB+9VhWT0EatEONeDzcUpj4dwqX5UJgmzCtMWiEBI/kPBAeTobtNg4Dyy460gNfkPI+Ip7Dbbie5Iw==
   dependencies:
     "@testing-library/dom" "^7.2.2"
 
@@ -302,14 +302,13 @@
     "@testing-library/react-hooks" "^3.2.1"
     react-test-renderer "^16.13.1"
 
-"@drewschrauf/bs-react-testing-library@^0.1.2":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@drewschrauf/bs-react-testing-library/-/bs-react-testing-library-0.1.4.tgz#f539373bddfb80743d2ea86d73c53868d88c5219"
-  integrity sha512-ZQ//qP+r3qXgglcwW5QN4VrzGuBW7ITNVE7chXZPTqHyzsbGGU31l+bqV9w1pJ/wk5wikcaXTkB2zRoGOeJMXA==
+"@drewschrauf/bs-react-testing-library@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@drewschrauf/bs-react-testing-library/-/bs-react-testing-library-0.1.5.tgz#8817aaa9d996a041cbb9b1dd998a3fa402c244ee"
+  integrity sha512-9tpn9A2uyKLFDdaE7bpRsT5h7HRAStTztU50kTAvF0iAiO6v2tPKsuuoWAP9sBtJB+J5uaOs82CIrqzcJ0W8wQ==
   dependencies:
-    "@drewschrauf/bs-dom-testing-library" "^0.1.2"
+    "@drewschrauf/bs-dom-testing-library" "^0.1.3"
     "@testing-library/react" "^10.0.3"
-    bs-let "^0.1.16"
 
 "@glennsl/bs-jest@^0.5.1":
   version "0.5.1"
@@ -1017,11 +1016,6 @@ browser-resolve@^1.11.3:
   integrity sha512-exDi1BYWB/6raKHmDTCicQfTkqwN5fioMFV4j8BsfMU4R2DK/QfZfK7kOVkmWCNANf0snkBzqGqAJBao9gZMdQ==
   dependencies:
     resolve "1.1.7"
-
-bs-let@^0.1.16:
-  version "0.1.16"
-  resolved "https://registry.yarnpkg.com/bs-let/-/bs-let-0.1.16.tgz#63cd449ed02c75f87eceb248d45963937afdd4ed"
-  integrity sha512-pdbSNe/QRpqgqS72dYDlkZ7kqMHc5aJkLgipLS8BFMRx+hQqkOo0JOpxWZQeDj1T677e302xgmV+Mid5gvmnBg==
 
 bs-platform@^7.3.2:
   version "7.3.2"
