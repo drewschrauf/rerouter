@@ -294,10 +294,10 @@
   dependencies:
     "@testing-library/jest-dom" "^5.5.0"
 
-"@drewschrauf/bs-react-hooks-testing-library@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@drewschrauf/bs-react-hooks-testing-library/-/bs-react-hooks-testing-library-0.1.0.tgz#4d7761a32ee491b9a566fec227a55b080f0ea5be"
-  integrity sha512-YYjlShoN/PnddCAcBcTMf85GGu00Fab6LaFR+5vc8Yq6g5WAiJtg44zPl2uJiaMbifjtRmf+Imb2mjtbX652zA==
+"@drewschrauf/bs-react-hooks-testing-library@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@drewschrauf/bs-react-hooks-testing-library/-/bs-react-hooks-testing-library-0.1.1.tgz#e3bbc28318aeb86c72dff6dc28dc1a18ece61817"
+  integrity sha512-TxyoeAapzHJNmSEYYOrC/34TdOqikG83RHL+nCReBm1gMPWzXh4dGMEuDfeUecVmpxMqffikmRe+beIaiPv6SA==
   dependencies:
     "@testing-library/react-hooks" "^3.2.1"
     react-test-renderer "^16.13.1"
