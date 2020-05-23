@@ -22,11 +22,9 @@ and add it to your `bsconfig.json`
 
 ```json
 {
-    ...,
-    "bs-dependencies": {
-    	...,
-    	"@drewschrauf/rerouter"
-	}
+    "bs-dependencies": [
+        "@drewschrauf/rerouter"
+    ]
 }
 ```
 
@@ -46,9 +44,9 @@ When you're writing your tests (ideally with [@glennsl/bs-jest](https://github.c
 ```reason
 /* MyTest_test.re */
 test("app should render", () => {
-	let history = Rerouter.History.createMemoryHistory(~initialEntries=["/"], ());
-	render(<Rerouter history> <App /> </Rerouter>);
-})
+  let history = Rerouter.History.createMemoryHistory(~initialEntries=["/"], ());
+  render(<Rerouter history> <App /> </Rerouter>);
+});
 ```
 
 ## API
