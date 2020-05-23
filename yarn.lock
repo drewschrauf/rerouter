@@ -287,10 +287,10 @@
   dependencies:
     "@testing-library/dom" "^7.2.2"
 
-"@drewschrauf/bs-jest-dom@^0.1.2":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@drewschrauf/bs-jest-dom/-/bs-jest-dom-0.1.3.tgz#0d4d2d36fd50b77246d391a2e1106f63106ee37c"
-  integrity sha512-e2/nqC7fqxpopfVRVQ/9CdSJICwC+MgVynbOKC2IAmNfFJlEwODYQ2KBrvuZVX8f1dSC9YJWw3mkQOYYplBp6w==
+"@drewschrauf/bs-jest-dom@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@drewschrauf/bs-jest-dom/-/bs-jest-dom-0.1.4.tgz#55236c467a3b4a82f86c06f13363f8c055763b8c"
+  integrity sha512-XREsFC/mG747IbEhDa+Y+zHJGY+8iII98e2C3hluuMVV0xsPUzau4NeFYUBw0hnuHgSQu2HSqoGmcGVyG29yag==
   dependencies:
     "@testing-library/jest-dom" "^5.5.0"
 

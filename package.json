@@ -24,7 +24,7 @@
     "react-test-renderer": "^16.13.1"
   },
   "devDependencies": {
-    "@drewschrauf/bs-jest-dom": "^0.1.2",
+    "@drewschrauf/bs-jest-dom": "^0.1.4",
     "@drewschrauf/bs-react-hooks-testing-library": "^0.1.0",
     "@drewschrauf/bs-react-testing-library": "^0.1.5",
     "@glennsl/bs-jest": "^0.5.1",
