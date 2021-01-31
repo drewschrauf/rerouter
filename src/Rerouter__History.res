@@ -5,6 +5,7 @@ type location = {
   search: string,
   hash: string,
 }
+type listenEvent = {location: location}
 
 module BrowserHistoryOptions = {
   type t = {
@@ -28,7 +29,7 @@ external _createBrowserHistory: BrowserHistoryOptions.t => t = "createBrowserHis
 @bs.module("history")
 external _createMemoryHistory: MemoryHistoryOptions.t => t = "createMemoryHistory"
 
-@bs.send external listen: (t, location => unit) => unlisten = "listen"
+@bs.send external listen: (t, listenEvent => unit) => unlisten = "listen"
 @bs.get external location: t => location = "location"
 @bs.send external push: (t, string) => unit = "push"
 @bs.send external replace: (t, string) => unit = "replace"
@@ -48,10 +49,7 @@ let createMemoryHistory = (
   (),
 ): t =>
   _createMemoryHistory({
-    initialEntries: switch initialEntries {
-    | Some(entries) => Some(entries)
-    | None => None
-    },
+    initialEntries: initialEntries,
     initialIndex: initialIndex,
     keyLength: keyLength,
   })

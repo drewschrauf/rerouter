@@ -18,20 +18,22 @@ module Provider = {
 }
 
 let locationToUrl = (location: History.location): url => {
-  path: switch location.pathname {
-  | ""
-  | "/" => []
-  | raw =>
-    let raw = raw |> Js.String.sliceToEnd(~from=1)
-    let lastChar = String.get(raw, raw->String.length - 1)
-    let raw = switch lastChar {
-    | '/' => raw |> Js.String.slice(~from=0, ~to_=-1)
-    | _ => raw
-    }
-    raw |> Js.String.split("/")
-  },
-  search: location.search->Js.String.sliceToEnd(~from=1),
-  hash: location.hash->Js.String.sliceToEnd(~from=1),
+  {
+    path: switch location.pathname {
+    | ""
+    | "/" => []
+    | raw =>
+      let raw = raw->Js.String2.sliceToEnd(~from=1)
+      let lastChar = raw->Js.String2.get(raw->String.length - 1)
+      let raw = switch lastChar {
+      | "/" => raw->Js.String2.slice(~from=0, ~to_=-1)
+      | _ => raw
+      }
+      raw->Js.String2.split("/")
+    },
+    search: location.search->Js.String2.sliceToEnd(~from=1),
+    hash: location.hash->Js.String2.sliceToEnd(~from=1),
+  }
 }
 
 @react.component
@@ -46,7 +48,7 @@ let make = (~history=?, ~children) => {
   let (url, setUrl) = React.useState(_ => history->History.location->locationToUrl)
 
   React.useEffect(() => {
-    let unlisten = history->History.listen(l => setUrl(_ => l->locationToUrl))
+    let unlisten = history->History.listen(l => setUrl(_ => l.location->locationToUrl))
     Some(unlisten)
   })
 

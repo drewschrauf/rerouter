@@ -20,7 +20,7 @@
     "router"
   ],
   "dependencies": {
-    "history": "4.10.1"
+    "history": "5.0.0"
   },
   "devDependencies": {
     "@drewschrauf/bs-jest-dom": "^0.1.4",

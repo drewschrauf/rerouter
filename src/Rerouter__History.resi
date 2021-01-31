@@ -5,6 +5,7 @@ type location = {
   search: string,
   hash: string,
 }
+type listenEvent = {location: location}
 
 let createBrowserHistory: (~basename: string=?, ~forceRefresh: bool=?, ~keyLength: int=?, unit) => t
 
@@ -15,7 +16,7 @@ let createMemoryHistory: (
   unit,
 ) => t
 
-let listen: (t, location => unit) => unlisten
+let listen: (t, listenEvent => unit) => unlisten
 let location: t => location
 let push: (t, string) => unit
 let replace: (t, string) => unit
