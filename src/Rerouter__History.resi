@@ -9,7 +9,7 @@ type location = {
 let createBrowserHistory: (~basename: string=?, ~forceRefresh: bool=?, ~keyLength: int=?, unit) => t
 
 let createMemoryHistory: (
-  ~initialEntries: list<string>=?,
+  ~initialEntries: array<string>=?,
   ~initialIndex: int=?,
   ~keyLength: int=?,
   unit,

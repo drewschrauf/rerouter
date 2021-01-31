@@ -42,14 +42,14 @@ let createBrowserHistory = (
   _createBrowserHistory({basename: basename, forceRefresh: forceRefresh, keyLength: keyLength})
 
 let createMemoryHistory = (
-  ~initialEntries: option<list<string>>=?,
+  ~initialEntries: option<array<string>>=?,
   ~initialIndex: option<int>=?,
   ~keyLength: option<int>=?,
   (),
 ): t =>
   _createMemoryHistory({
     initialEntries: switch initialEntries {
-    | Some(entries) => Some(entries->Array.of_list)
+    | Some(entries) => Some(entries)
     | None => None
     },
     initialIndex: initialIndex,

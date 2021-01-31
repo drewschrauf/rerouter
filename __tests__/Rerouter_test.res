@@ -2,17 +2,17 @@ open Jest
 open Expect
 open ReactHooksTestingLibrary
 
-let history = %bs.raw(` require("history") `)
-let bh = %bs.raw(` jest.spyOn(history, "createBrowserHistory") `)
+let history = %bs.raw(`require("history")`)
+let bh = %bs.raw(`jest.spyOn(history, "createBrowserHistory")`)
 
 beforeEach(() => {
-  %bs.raw(` jest.clearAllMocks() `)->ignore
-  %bs.raw(` console.error = jest.fn() `)->ignore
+  %bs.raw(`jest.clearAllMocks()`)->ignore
+  %bs.raw(`console.error = jest.fn()`)->ignore
 })
 
 module type TestArgs = {
   let url: string
-  let path: list<string>
+  let path: array<string>
   let search: string
   let hash: string
 }
@@ -21,7 +21,7 @@ module Tests = (TA: TestArgs): TestCase => {
   module Context = {
     @react.component
     let make = (~children) =>
-      <Rerouter history={Rerouter.History.createMemoryHistory(~initialEntries=list{TA.url}, ())}>
+      <Rerouter history={Rerouter.History.createMemoryHistory(~initialEntries=[TA.url], ())}>
         children
       </Rerouter>
   }
@@ -30,7 +30,7 @@ module Tests = (TA: TestArgs): TestCase => {
     "when url is \"" ++
     (TA.url ++
     ("\" path should be [" ++
-    ((TA.path |> List.map(i => "\"" ++ (i ++ "\"")) |> Array.of_list |> Js.Array.joinWith(", ")) ++
+    ((TA.path |> Array.map(i => "\"" ++ (i ++ "\"")) |> Js.Array.joinWith(", ")) ++
     "]"))),
     () => {
       let {Rerouter.path: path} =
@@ -54,56 +54,56 @@ module Tests = (TA: TestArgs): TestCase => {
 
 include Tests({
   let url = "/"
-  let path = list{}
+  let path = []
   let search = ""
   let hash = ""
 })
 
 include Tests({
   let url = "/hello/world"
-  let path = list{"hello", "world"}
+  let path = ["hello", "world"]
   let search = ""
   let hash = ""
 })
 
 include Tests({
   let url = "/hello/world/"
-  let path = list{"hello", "world"}
+  let path = ["hello", "world"]
   let search = ""
   let hash = ""
 })
 
 include Tests({
   let url = "/?"
-  let path = list{}
+  let path = []
   let search = ""
   let hash = ""
 })
 
 include Tests({
   let url = "/?search"
-  let path = list{}
+  let path = []
   let search = "search"
   let hash = ""
 })
 
 include Tests({
   let url = "/#"
-  let path = list{}
+  let path = []
   let search = ""
   let hash = ""
 })
 
 include Tests({
   let url = "/#hash"
-  let path = list{}
+  let path = []
   let search = ""
   let hash = "hash"
 })
 
 include Tests({
   let url = "/hello/world?search=value#hash"
-  let path = list{"hello", "world"}
+  let path = ["hello", "world"]
   let search = "search=value"
   let hash = "hash"
 })
@@ -111,7 +111,7 @@ include Tests({
 module Context = {
   @react.component
   let make = (~children) =>
-    <Rerouter history={Rerouter.History.createMemoryHistory(~initialEntries=list{"/"}, ())}>
+    <Rerouter history={Rerouter.History.createMemoryHistory(~initialEntries=["/"], ())}>
       children
     </Rerouter>
 }
@@ -129,7 +129,7 @@ test("using history.push should update url", () => {
 
   let {Rerouter.path: path} = result |> current |> fst
 
-  expect(path) |> toEqual(list{"hello", "world"})
+  expect(path) |> toEqual(["hello", "world"])
 })
 
 test("using history.replace should update url", () => {
@@ -145,7 +145,7 @@ test("using history.replace should update url", () => {
 
   let {Rerouter.path: path} = result |> current |> fst
 
-  expect(path) |> toEqual(list{"hello", "world"})
+  expect(path) |> toEqual(["hello", "world"])
 })
 
 test("using the provider without a history should default to a browser history", () => {

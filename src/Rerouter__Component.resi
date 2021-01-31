@@ -7,7 +7,7 @@ let makeProps: (
 ) => {"history": option<Rerouter__History.t>, "children": React.element}
 
 type url = {
-  path: list<string>,
+  path: array<string>,
   search: string,
   hash: string,
 }

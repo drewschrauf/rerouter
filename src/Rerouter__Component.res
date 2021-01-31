@@ -1,7 +1,7 @@
 module History = Rerouter__History
 
 type url = {
-  path: list<string>,
+  path: array<string>,
   search: string,
   hash: string,
 }
@@ -20,7 +20,7 @@ module Provider = {
 let locationToUrl = (location: History.location): url => {
   path: switch location.pathname {
   | ""
-  | "/" => list{}
+  | "/" => []
   | raw =>
     let raw = raw |> Js.String.sliceToEnd(~from=1)
     let lastChar = String.get(raw, raw->String.length - 1)
@@ -28,7 +28,7 @@ let locationToUrl = (location: History.location): url => {
     | '/' => raw |> Js.String.slice(~from=0, ~to_=-1)
     | _ => raw
     }
-    raw->String.split_on_char('/', _)
+    raw |> Js.String.split("/")
   },
   search: location.search->Js.String.sliceToEnd(~from=1),
   hash: location.hash->Js.String.sliceToEnd(~from=1),
