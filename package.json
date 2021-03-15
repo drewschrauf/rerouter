@@ -26,7 +26,7 @@
     "@drewschrauf/bs-jest-dom": "^0.1.4",
     "@drewschrauf/bs-react-hooks-testing-library": "^0.1.1",
     "@drewschrauf/bs-react-testing-library": "^0.1.5",
-    "@glennsl/bs-jest": "^0.6.0",
+    "@glennsl/bs-jest": "^0.7.0",
     "bs-platform": "^7.3.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
